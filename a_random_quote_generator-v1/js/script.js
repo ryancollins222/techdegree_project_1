@@ -7,10 +7,8 @@ project 1 - A Random Quote Generator
   // Check the "Project Resources" section of the project instructions
   // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-/*** 
- * `quotes` array 
-***/
 
+// quotes array
 let quotes = [
   {
     quote: "We are all self-made, but only the successful will admit it.",
@@ -70,8 +68,12 @@ function printQuote() {
   }
   quoteString += `</p>`
   document.getElementById('quote-box').innerHTML = quoteString;
+  // change background color
   document.body.style.backgroundColor = rgbColor;
 } 
+
+// refreshes page with new quote every 10 seconds
+setInterval(printQuote, 10000);
 
 /***
  * click event listener for the print quote button
