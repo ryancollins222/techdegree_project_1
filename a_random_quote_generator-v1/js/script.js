@@ -38,11 +38,21 @@ let quotes = [
 ];
 
 // calculates random index num to return quote 
+let usedNums = [];
 function getRandomQuote() {
-  let randNum = Math.floor(Math.random() * quotes.length);
-  return quotes[randNum];
+  while (true) {
+    let randNum = Math.floor(Math.random() * quotes.length);
+    if (usedNums.indexOf(randNum) === -1) {
+      usedNums.push(randNum);
+      console.log(usedNums);
+      return quotes[randNum];
+    }
+    if (usedNums.length === quotes.length) {
+      usedNums = [];
+    }
+  }
 }
-
+    
 // random color
 function randColor() {
   let color = Math.floor(Math.random() * 256);
